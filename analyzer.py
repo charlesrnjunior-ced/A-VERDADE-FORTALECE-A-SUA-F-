@@ -66,7 +66,7 @@ def analisar_artigo_texto(conteudo: str, url: str = "") -> dict:
     prompt_usuario += f"Texto/Artigo:\n{conteudo}"
 
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.8-flash",
         contents=prompt_usuario,
         config=types.GenerateContentConfig(
             system_instruction=SYSTEM_PROMPT_TEXTO,
@@ -128,7 +128,7 @@ def analisar_video_ia(caminho_video: str, contexto_usuario: str = "") -> dict:
         partes.append(types.Part.from_bytes(data=q_bytes, mime_type="image/jpeg"))
 
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.8-flash",
         contents=partes,
         config=types.GenerateContentConfig(
             system_instruction=SYSTEM_PROMPT_VIDEO,
