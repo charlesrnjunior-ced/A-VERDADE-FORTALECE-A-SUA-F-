@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Verdade Fortalece a Sua Fé — Verificação e Educação Midiática</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <span>Brasil • Observatório de Checagem Factual e Educação Digital</span>
+  </div>
+
+  <header class="header">
+    <div class="container header-content">
+      <div class="brand">
+        <div class="brand-emblem" aria-hidden="true">
+          <span class="dot-green"></span>
+          <span class="dot-gold"></span>
+          <span class="dot-blue"></span>
+        </div>
+        <div>
+          <h1>A Verdade Fortalece a Sua Fé</h1>
+          <p>Checagem de artigos sobre as eleições de 2022 e detecção de vídeos por IA</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#verificador">Verificador</a>
+        <a href="#guia-2022">Guia Eleições 2022</a>
+        <a href="#como-identificar-ia">Vídeos por IA</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <span class="badge-brasil">Compromisso com a Verdade e a Boa-Fé</span>
+      <h2>Discernimento e clareza diante da desinformação digital</h2>
+      <p>
+        Ferramenta informativa desenvolvida para ajudar cidadãos e comunidades de fé a verificar notícias,
+        correntes das eleições de 2022 e identificar vídeos manipulados por Inteligência Artificial.
+      </p>
+    </div>
+  </section>
+
+  <main id="verificador" class="container main-section">
+    <div class="card verifier-card">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="texto">1. Verificar Artigo ou Texto</button>
+        <button class="tab-btn" data-tab="video">2. Detectar Vídeo Gerado por IA</button>
+      </div>
+
+      <div id="tab-texto" class="tab-content active">
+        <div class="form-group">
+          <label for="input-url">Link da notícia ou artigo (opcional)</label>
+          <input type="url" id="input-url" placeholder="https://exemplo.com.br/noticia..." />
+        </div>
+
+        <div class="form-group">
+          <label for="input-texto">Cole o texto do artigo, notícia ou mensagem recebida</label>
+          <textarea id="input-texto" rows="6" placeholder="Ex.: Mensagem sobre fechamento de igrejas, fala de candidato atribuída a líderes religiosos nas eleições de 2022..."></textarea>
+        </div>
+
+        <div class="examples-row">
+          <span>Testar com exemplo de 2022:</span>
+          <button type="button" class="chip" id="btn-exemplo-fake">Boato sobre fechamento de templos</button>
+          <button type="button" class="chip" id="btn-exemplo-real">Nota oficial do TSE sobre liberdade religiosa</button>
+        </div>
+
+        <button id="btn-analisar-texto" class="btn-primary">Analisar Veracidade do Texto</button>
+      </div>
+
+      <div id="tab-video" class="tab-content">
+        <div class="upload-box" id="upload-box">
+          <input type="file" id="input-video" accept="video/mp4,video/quicktime,video/webm" hidden />
+          <p class="upload-title">Clique para selecionar ou arraste um vídeo aqui</p>
+          <p class="upload-sub">Formatos aceitos: MP4, MOV ou WEBM (máx. 25 MB)</p>
+          <span id="nome-arquivo" class="file-name"></span>
+        </div>
+
+        <div class="form-group" style="margin-top: 1rem;">
+          <label for="input-contexto-video">Onde você recebeu este vídeo? (opcional)</label>
+          <input type="text" id="input-contexto-video" placeholder="Ex.: Grupo de WhatsApp da igreja, vídeo mostrando fala de candidato..." />
+        </div>
+
+        <button id="btn-analisar-video" class="btn-primary">Analisar Quadros e Sinais de IA</button>
+      </div>
+
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p id="loading-text">Consultando fontes factuais e analisando padrões de discurso...</p>
+      </div>
+
+      <div id="resultado-container" class="resultado-box hidden"></div>
+    </div>
+
+    <section id="guia-2022" class="info-section">
+      <div class="section-header">
+        <h3>O Cenário das Fake News Religiosas nas Eleições de 2022</h3>
+        <p>Compreenda os principais padrões de desinformação que circularam entre eleitores cristãos e religiosos no Brasil.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="info-card border-green">
+          <h4>Pânico Moral e Fechamento de Igrejas</h4>
+          <p>
+            Um dos boatos mais recorrentes em 2022 afirmava que templos seriam fechados ou que a Bíblia seria proibida.
+            A Constituição Federal (Art. 5º, VI) garante a inviolabilidade da liberdade de crença e o livre exercício dos cultos religiosos.
+          </p>
+        </article>
+
+        <article class="info-card border-blue">
+          <h4>Falsas Profecias e Citações Inventadas</h4>
+          <p>
+            Textos apócrifos atribuídos a pastores, padres e teólogos conhecidos foram amplamente disseminados no WhatsApp,
+            usando linguagem espiritual para induzir o voto por meio do medo.
+          </p>
+        </article>
+
+        <article class="info-card border-gold">
+          <h4>Vídeos Editados Fora de Contexto</h4>
+          <p>
+            Trechos curtos de cultos, missas e entrevistas antigas foram recortados e legendados de forma distorcida
+            para sugerir apoio ou rejeição inexistente a candidatos.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="como-identificar-ia" class="info-section">
+      <div class="section-header">
+        <h3>Como Identificar Vídeos Gerados por Inteligência Artificial</h3>
+        <p>Sinais visuais e auditivos que ajudam a reconhecer deepfakes antes de compartilhar.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="info-card">
+          <h4>1. Observe o rosto, olhos e sincronia labial</h4>
+          <p>Vídeos sintéticos costumam apresentar piscadas irregulares, movimentos rígidos da cabeça e leve atraso entre o som da voz e o movimento dos lábios.</p>
+        </div>
+        <div class="info-card">
+          <h4>2. Verifique mãos, detalhes e textos ao fundo</h4>
+          <p>Geradores de vídeo frequentemente distorcem dedos, letras em faixas de igrejas, capas de livros ou brasões oficiais ao fundo da cena.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>A Verdade Fortalece a Sua Fé</strong> — Plataforma Informativa de Educação Midiática e Checagem Factual.</p>
+      <p class="footer-note">Baseado em princípios de transparência jornalística, respeito à liberdade religiosa e verificação de fatos.</p>
+    </div>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
